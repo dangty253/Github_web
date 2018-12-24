@@ -1,8 +1,8 @@
 <?php
-include "/config/config.php";
-include ROOT."/include/function.php";
-if (!isset($_SESSION)) session_start();
+include "config/config.php";
+include "include/function.php";
 spl_autoload_register("loadClass");
+if (!isset($_SESSION)) session_start();
 $db= new Db();
 $log = getIndex("log","");
 if ($log== "login")
@@ -16,6 +16,11 @@ if ($log== "login")
 		$_SESSION["khachhang_login"] =1;
 		$_SESSION["khachhang_data"] = $data[0];
 	}
+	else
+	{
+		echo "<script type='text/javascript'>	alert('Đăng nhập thất bại !');";
+    	echo " location.href='dang-nhap.html';</script>";
+	}
 }
 if ($log== "logout")
 {
@@ -24,6 +29,11 @@ if ($log== "logout")
 }
 if (!isset($_SESSION["khachhang_login"]))
 {
-	echo "<script type='text/javascript'>window.location('index.php?mod=dangnhap');</script>";
+    echo "<script type='text/javascript'> location.href='dang-nhap.html';</script>";
 }
-else echo "<script type='text/javascript'>window.location('index.php');</script>";
+else {
+    echo "<script type='text/javascript'>	alert('Đăng nhập thành công !');";
+    echo " location.href='index.html';</script>";
+
+
+}

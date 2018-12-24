@@ -42,6 +42,34 @@ if($_SESSION['datve']['return']!=""){
 }
 
 
-echo "<script type='text/javascript'>alert('Đặt chỗ thành công !');</script>";
-sleep(2);
-echo "<script type='text/javascript'>window.location('index.php');</script>";
+//echo "<script type='text/javascript'>alert('Đặt chỗ thành công !');</script>";
+
+		//sử dụng để load thư viện 
+		include ROOT."/lib/PHPMailer/PHPMailerAutoload.php";
+		
+		$mail = new PHPMailer();
+		$mail->IsSMTP(); // set mailer to use SMTP
+		$mail->Host = "smtp.gmail.com"; // specify main and backup server
+		$mail->Port = 465; // set the port to use
+		$mail->SMTPAuth = true; // turn on SMTP authentication
+		$mail->SMTPSecure = 'ssl';
+		$mail->Username = "test.dangty253@gmail.com"; //Địa chỉ gmail sử dụng để gửi email
+		$mail->Password = "Ty123456"; // your SMTP password or your gmail password
+		$from = "test.dangty253@gmail.com"; // Khi người sử dụng bấm reply sẽ gửi đến email này
+		$to=$_SESSION['KhachHang']['Email']; // Email người nhận (email thực)
+		$name="Hi, ".$_SESSION['KhachHang']['Ten']; // Tên người nhận
+		$mail->From = $from;
+		$mail->FromName = "Booking online"; // Tên người gửi 
+		$mail->AddAddress($to,$name);
+		$mail->AddReplyTo($from,"Phong cham soc khach hang");
+		$mail->WordWrap = 50; // set word wrap
+		$mail->IsHTML(true); // send as HTML
+		$mail->Subject = "Xac nhan dat cho!";
+		$mail->Body ="Tổng số tiền : ".number_format($_SESSION['datve']['price']) ."<br> Quý khách đã đặt chỗ thành công! vui lòng thanh toán sớm để nhận vé !!" ."<hr> Chi tiet xem tai: <a href='". 'booknflight.ml'."'>".'booknflight.ml'."</a>";
+		$mail->SMTPDebug = 2;//Hiện debug lỗi. Mặc định sẽ tắt lỗi này
+		$mail->Send();
+echo $_SESSION['KhachHang']['Email'];
+unset($_SESSION['datve']);
+echo "<script type='text/javascript'>	alert('Đặt chỗ thành công !');";
+echo " location.href='index.html';</script>";
+?>

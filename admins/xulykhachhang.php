@@ -27,4 +27,5 @@ else if($c=='delete')
 	$Sb=new Khachhang();
 	$Sb->delete($username);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=khachhang&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=khachhang&c=$c");
+exit;

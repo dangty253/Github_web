@@ -4,8 +4,10 @@ include "config/config.php";
 include "include/function.php";
 spl_autoload_register("loadClass");
 if (!isset($_SESSION)) session_start();
-
+//$oke = getIndex("oke","");
+//if($oke=="true") echo "<script type='text/javascript'>alert('Đặt chỗ thành công !');</script>";
 ?>
+
 <head>
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>

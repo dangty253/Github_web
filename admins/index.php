@@ -9,6 +9,7 @@ if ($mod== "login")
 {
 	$u = postIndex("username");
 	$p = md5(postIndex("password"));
+	
 	$sql ="SELECT username, Password, Ten, SoDienThoai, Email FROM admin WHERE  username='$u' and Password= '$p' ";
 	$data = $db->selectQuery($sql);
 	if (count($data)>0)

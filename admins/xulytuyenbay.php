@@ -28,4 +28,5 @@ else if($c=='delete')
 	$Sb=new Tuyenbay();
 	$Sb->delete($MaTuyenbay);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=tuyenbay&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=tuyenbay&c=$c");
+exit;

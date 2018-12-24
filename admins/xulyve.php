@@ -3,6 +3,7 @@ include "../config/config.php";
 include ROOT."/include/function.php";
 if (!isset($_SESSION)) session_start();
 spl_autoload_register("loadClass");
+$MaPhieuDat=getIndex("MaPhieuDat","");
 
 $c = getIndex("c","");
 $MaVe=postIndex("MaVe","");
@@ -27,4 +28,5 @@ else if($c=='delete')
 	$Sb=new Ve();
 	$Sb->delete($Mave);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=ve&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=ve&c=$c&MaPhieuDat=$MaPhieuDat");
+exit;

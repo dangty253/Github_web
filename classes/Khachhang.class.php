@@ -23,6 +23,11 @@ class Khachhang extends Db
 		$sql="UPDATE khachhang SET username='$username',Password='$Password',HoTen='$HoTen',DiaChi='$DiaChi',SoDienThoai='$SoDienThoai',Email='$Email'  WHERE username='$username'";
 		$this->selectQuery($sql);
 	}
+	function updatepass($username,$Password)
+	{
+		$sql="UPDATE khachhang SET username='$username',Password='$Password'  WHERE username='$username'";
+		$this->selectQuery($sql);
+	}
 	function getall_page($page)
 	{
 		$from = ($page-1)* SIZE;

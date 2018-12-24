@@ -15,7 +15,7 @@ $page_count = $Sb->count_page();
 								<tr>
 								   <th>Username</th>
 								   <th>Password</th>
-								   <th>Tên</th>
+								   <th>Họ Tên</th>
 								   <th>Địa chỉ</th>
 								   <th>Số điện thoại</th>
 								   <th>Email</th>

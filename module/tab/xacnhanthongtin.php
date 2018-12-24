@@ -30,12 +30,19 @@ if($c=="mac2"){
 }
 $datve=$_SESSION['datve'];
 $_SESSION['datve']['price']=0;
-
-//echo "<pre>";
-//print_r($Khoihanh);
+if (isset($_SESSION["khachhang_data"])) {
+	$kh=$_SESSION["khachhang_data"];
+	foreach (str_word_count($kh['HoTen'],2) as $key => $value) {
+		if($key!=0) {
+			$k=$key;
+			break;
+		}
+	}
+}
+else $kh="";
 ?>
 
-<form action="index.php" method="post" id="js">
+<form action="index.html" method="post" id="js">
 <table  width="100%" >
 	<tr>
 		<td width="58%" valign="top">
@@ -48,16 +55,16 @@ $_SESSION['datve']['price']=0;
 					<td>Tên</td>
 				</tr>
 				<tr>
-					<td><input type="text" name="Hokh" required></td>
-					<td><input type="text" name="Tenkh" required></td>
+					<td><input type="text" name="Hokh" value="<?php if ($kh!="") echo mb_substr($kh['HoTen'],0,$k-1) ?>" required></td>
+					<td><input type="text" name="Tenkh" value="<?php if ($kh!="") echo mb_substr($kh['HoTen'],$k) ?>" required></td>
 				</tr>
 				<tr>
-					<td>Số điện thoại</td>
+					<td>Số điện thoại </td>
 					<td>Email</td>
 				</tr>
 				<tr>
-					<td><input type="text" name="Sdt"></td>
-					<td><input type="text" name="Email"></td>
+					<td><input type="text" name="Sdt" value="<?php if ($kh!="") echo $_SESSION["khachhang_data"]['SoDienThoai']; ?>"></td>
+					<td><input type="text" name="Email" value="<?php if ($kh!="") echo $_SESSION["khachhang_data"]['Email']; ?>"></td>
 				</tr>
 			</table>
 			<h2>Thông tin hành khách</h2>

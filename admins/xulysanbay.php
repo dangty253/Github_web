@@ -24,4 +24,5 @@ else if($c=='delete')
 	$Sb=new Sanbay();
 	$Sb->delete($MaSanBay);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=sanbay&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=sanbay&c=$c");
+exit;

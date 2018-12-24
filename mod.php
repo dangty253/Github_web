@@ -5,7 +5,7 @@ if (!defined("ROOT"))
 }
 $path =ROOT."/module/tab/1.php";//mac dinh
 	$mod = isset($_GET["mod"])?$_GET["mod"]:"";
-	if(isset($_POST["submitTim"]))
+	if(isset($_GET["masanbaydi"]))
 	{
 		$path= ROOT."/module/tab/timchuyenbay.php";
 	}
@@ -23,6 +23,15 @@ $path =ROOT."/module/tab/1.php";//mac dinh
 	}
 	if($mod=="dangky"){
 		$path= ROOT."/module/tab/dangky.php";
+	}
+	if($mod=="taikhoankhachhang"){
+		$path= ROOT."/module/tab/taikhoankhachhang.php";
+	}
+	if($mod=="quenmatkhau"){
+		$path= ROOT."/module/tab/quenmatkhau.php";
+	}
+	if($mod=="doimatkhau"){
+		$path= ROOT."/module/tab/doimatkhau.php";
 	}
 	include $path;
 

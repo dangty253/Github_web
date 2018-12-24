@@ -35,13 +35,13 @@ class Sanbay extends Db
 	{
 		$from = ($page-1)* SIZE;
 		$s=SIZE;
-		$sql="select * from Sanbay limit $from, ". SIZE;
+		$sql="select * from sanbay limit $from, ". SIZE;
 		return $this->selectQuery($sql);
 	}
 
 	function count_page()
 	{
-	$data = $this->selectQuery("select Count(*) as dem from Sanbay");
+	$data = $this->selectQuery("select Count(*) as dem from sanbay");
 	$sosach = $data[0]['dem'];
 	return ceil($sosach/SIZE);
 

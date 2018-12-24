@@ -28,4 +28,5 @@ else if($c=='delete')
 	$Sb=new Chuyenbay();
 	$Sb->delete($MaChuyenBay);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=admin&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=chuyenbay&c=$c");
+exit;

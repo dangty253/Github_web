@@ -23,4 +23,5 @@ else if($c=='delete')
 	$Sb=new Maybay();
 	$Sb->delete($MaMayBay);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=maybay&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=maybay&c=$c");
+exit;

@@ -1,25 +1,11 @@
 <?php
 if(!isset($_SESSION)) session_start();
-if (!isset($_SESSION['datve'])) 
-	$_SESSION['datve'] = array();
+$datve=$_SESSION['datve'];
 $c=getIndex("c","mac1");
 $_SESSION['datve']["mac1"]=$c;
 if ($c=="mac1"){
-	$datve = array();
-	$datve['submitTim']=postIndex("submitTim","");
-	$datve['dxp']=postIndex("dxp","");
-	$datve['dd']=postIndex("dd","");
-	$datve['datexp']=postIndex("datexp","");
-	$datve['return']=postIndex("return","");
-	$datve['hangghe']=postIndex("hangghe","");
-	$datve['tuoi']=postIndex("tuoi",array());
-
-	$Cb = new Sanbay();
-	$SanBayDi=$Cb->masanbay($datve['dxp']);
-	$SanBayDen=$Cb->masanbay($datve['dd']);
-	$datve['SanBayDi']=$SanBayDi;
-	$datve['SanBayDen']=$SanBayDen;
-	$_SESSION['datve']=$datve;
+	$SanBayDi=$datve['SanBayDi'];
+	$SanBayDen=$datve['SanBayDen'];
 	$Cb = new Chuyenbay();
 	$date=$datve['datexp'];
 	$arrCb = $Cb->searchCB($SanBayDi[0]['MaSanBay'],$SanBayDen[0]['MaSanBay'],$date,$datve['hangghe']);
@@ -98,12 +84,14 @@ else{
 	function chon(s){
 		
 		<?php 
+		$base = new Base();
+		$url= 'chuyen-bay-khu-hoi-'.$base->striptitle($SanBayDi[0]['TenTinhThanh']).'-'.$base->striptitle($SanBayDen[0]['TenTinhThanh']).'-' ;
 		if($_SESSION['datve']['return']=="" || $c!="mac1"){ 
-			echo "window.location.assign('index.php?tt='+s)";
+			echo "window.location.assign('thong-tin-'+s+'.html')";
 		}
 		else {
 	
-			echo "window.location.assign('index.php?c='+s)";
+			echo "window.location.assign('$url'+s+'.html')";
 		}
 		?>
 	}
