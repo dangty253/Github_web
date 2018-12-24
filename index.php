@@ -1,5 +1,5 @@
 <?php
-
+//Tin nguoi 
 include "config/config.php";
 include "include/function.php";
 spl_autoload_register("loadClass");
