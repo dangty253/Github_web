@@ -1,4 +1,5 @@
 <?php
+
 $Sb = new Phieudat();
 $page = getIndex("page", 1);
 
@@ -71,7 +72,7 @@ $page_count = $Sb->count_page();
 										<!-- Icons -->
 										 <a href="index.php?mod=datvemb&group=phieudat&id=<?php echo $r["MaPhieuDat"];?>" title="Edit"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>&nbsp;&nbsp;
 										 <a href="xulyphieudat.php?c=delete&id=<?php echo $r["MaPhieuDat"];?>" title="Delete"><img src="resources/images/icons/cross.png" alt="Delete" /></a> 
-										
+										<a href="index.php?mod=datvemb&group=ve&MaPhieuDat=<?php echo $r["MaPhieuDat"];?>" title="Chi tiết">Chi tiết</a> 
 									</td>
 								</tr>
 								<?php
@@ -83,3 +84,5 @@ $page_count = $Sb->count_page();
 						</table>
 						
 					</div> <!-- End #tab1 -->
+</br>
+<?php

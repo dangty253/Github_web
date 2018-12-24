@@ -54,17 +54,17 @@ if ($sm !="")
 		$Sb->add($username,md5($Password),$HoTen,$DiaChi,$SoDienThoai,$Email);
 		$_SESSION["khachhang_login"] =1;
 		$_SESSION["khachhang_data"] = $Sb->Getfetch($username);
-		echo "<script type='text/javascript'>alert('Đăng ký thành công !');</script>";
-		echo "<script type='text/javascript'>window.location('index.php');</script>";
+		echo "<script type='text/javascript'>	alert('Đăng ký thành công !');";
+    	echo " location.href='index.html';</script>";
   	}
 }
 ?>
 
-<form action="index.php?mod=dangky" method="post" >
+<form action="dang-ky.html" method="post" >
 <table align="center" width="60%" class="dangnhap">
 	<tr>
 		<td>UserName</td>
-		<td><input type="text" name="username" id="Username"></td>
+		<td><input type="text" name="username" id="Username" ></td>
 	</tr>
 	<tr>
 		<td>Mật khẩu</td>

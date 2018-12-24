@@ -4,7 +4,7 @@ if (!defined("ROOT"))
 	echo "You don't have permission to access this page!"; exit;	
 }
 ?>
-<form action="index.php" method="post">
+<form action="xulytimchuyenbay.php" method="post">
 <table width="100%" cellspacing="10" class="dropdown">
 <tr>
 	<td width="50%" ><h2>Sân bay xuất phát</h2></td>

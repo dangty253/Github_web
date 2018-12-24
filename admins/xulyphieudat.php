@@ -28,4 +28,5 @@ else if($c=='delete')
 	$Sb=new Phieudat();
 	$Sb->delete($MaPhieuDat);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=phieudat&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=phieudat&c=$c");
+exit;

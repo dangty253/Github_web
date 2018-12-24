@@ -1,19 +1,23 @@
 <?php
 class Ve extends Db
 {	
-	function Addve($MaPhieuDat,$Mave,$TenHanhKhach,$NgaySinh,$DanhXung,$LoaiVe){
-		$sql="INSERT INTO ve(MaPhieuDat,Mave,TenHanhKhach,NgaySinh,DanhXung,LoaiVe) VALUES ('$MaPhieuDat','$Mave','$TenHanhKhach','$NgaySinh','$DanhXung','$LoaiVe')";
+	function Addve($MaPhieuDat,$MaChuyenBay,$TenHanhKhach,$NgaySinh,$DanhXung,$LoaiVe){
+		$sql="INSERT INTO ve(MaPhieuDat,MaChuyenBay,TenHanhKhach,NgaySinh,DanhXung,LoaiVe) VALUES ($MaPhieuDat','$MaChuyenBay',$TenHanhKhach','$NgaySinh','$DanhXung','$LoaiVe')";
 		$this->AddQuery($sql);
 	}	
-
+	function getfetchPD($MaPhieuDat)
+	{
+		$sql="SELECT MaVe,MaPhieuDat,MaChuyenBay,TenHanhKhach,NgaySinh,DanhXung,LoaiVe FROM ve WHERE MaPhieuDat='$MaPhieuDat'";
+		return $this->selectQuery($sql);
+	}
 	function getfetch($MaVe)
 	{
-		$sql="SELECT MaVe,Mave,TenHanhKhach,NgaySinh,DanhXung,LoaiVe FROM ve WHERE MaVe='$MaVe'";
+		$sql="SELECT MaVe,MaPhieuDat,MaChuyenBay,TenHanhKhach,NgaySinh,DanhXung,LoaiVe FROM ve WHERE MaVe='$MaVe'";
 		return $this->selectQuery($sql)[0];
 	}
-	function add($MaVe,$Mave,$TenHanhKhach,$NgaySinh,$DanhXung,$LoaiVe)
+	function add($MaVe,$MaPhieuDat,$MaChuyenBay,$TenHanhKhach,$NgaySinh,$DanhXung,$LoaiVe)
 	{
-		$sql="INSERT INTO ve VALUES ('$MaVe','$Mave','$TenHanhKhach','$NgaySinh','$DanhXung','$LoaiVe')";
+		$sql="INSERT INTO ve VALUES ('$MaVe','$MaPhieuDat','$MaChuyenBay','$TenHanhKhach','$NgaySinh','$DanhXung','$LoaiVe')";
 		$this->selectQuery($sql);
 	}
 	function delete($MaVe)
@@ -21,9 +25,9 @@ class Ve extends Db
 		$sql="DELETE FROM ve WHERE MaVe='$MaVe'";
 		$this->selectQuery($sql);
 	}
-	function update($MaVe,$Mave,$TenHanhKhach,$NgaySinh,$DanhXung,$LoaiVe)
+	function update($MaVe,$MaPhieuDat,$MaChuyenBay,$TenHanhKhach,$NgaySinh,$DanhXung,$LoaiVe)
 	{
-		$sql="UPDATE ve SET MaVe='$MaVe',Mave='$Mave',TenHanhKhach='$TenHanhKhach',NgaySinh='$NgaySinh',DanhXung='$DanhXung',LoaiVe='$LoaiVe''  WHERE MaVe='$MaVe'";
+		$sql="UPDATE ve SET MaVe='$MaVe',MaPhieuDat='$MaPhieuDat',MaChuyenBay='$MaChuyenBay',TenHanhKhach='$TenHanhKhach',NgaySinh='$NgaySinh',DanhXung='$DanhXung',LoaiVe='$LoaiVe''  WHERE MaVe='$MaVe'";
 		$this->selectQuery($sql);
 	}
 	function getall_page($page)
@@ -39,4 +43,5 @@ class Ve extends Db
 	$data = $this->selectQuery("select Count(*) as dem from ve");
 	$sosach = $data[0]['dem'];
 	return ceil($sosach/SIZE);
+}
 }

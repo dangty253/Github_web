@@ -37,7 +37,7 @@ class Chuyenbay extends Db
 
 	function getfetch($MaChuyenBay)
 	{
-		$sql="SELECT MaChuyenBay,GioKhoiHanh,GioHaCanh,MaTuyenBay,MaMayBay,NgayKhoiHanh,ThoiGianBay FROM ChuyenBay WHERE MaChuyenBay='$MaChuyenBay'";
+		$sql="SELECT MaChuyenBay,GioKhoiHanh,GioHaCanh,MaTuyenBay,MaMayBay,NgayKhoiHanh,ThoiGianBay FROM chuyenbay WHERE MaChuyenBay='$MaChuyenBay'";
 		return $this->selectQuery($sql)[0];
 	}
 	function add($MaChuyenBay,$GioKhoiHanh,$GioHaCanh,$MaTuyenBay,$MaMayBay,$NgayKhoiHanh,$ThoiGianBay)
@@ -47,19 +47,19 @@ class Chuyenbay extends Db
 	}
 	function delete($MaChuyenBay)
 	{
-		$sql="DELETE FROM ChuyenBay WHERE MaChuyenBay='$MaChuyenBay'";
+		$sql="DELETE FROM chuyenbay WHERE MaChuyenBay='$MaChuyenBay'";
 		$this->selectQuery($sql);
 	}
 	function update($MaChuyenBay,$GioKhoiHanh,$GioHaCanh,$MaTuyenBay,$MaMayBay,$NgayKhoiHanh,$ThoiGianBay)
 	{
-		$sql="UPDATE ChuyenBay SET MaChuyenBay='$MaChuyenBay',GioKhoiHanh='$GioKhoiHanh',GioHaCanh='$GioHaCanh',MaTuyenBay='$MaTuyenBay',MaMayBay='$MaMayBay',NgayKhoiHanh='$NgayKhoiHanh',ThoiGianBay='$ThoiGianBay'  WHERE MaChuyenBay='$MaChuyenBay'";
+		$sql="UPDATE chuyenbay SET MaChuyenBay='$MaChuyenBay',GioKhoiHanh='$GioKhoiHanh',GioHaCanh='$GioHaCanh',MaTuyenBay='$MaTuyenBay',MaMayBay='$MaMayBay',NgayKhoiHanh='$NgayKhoiHanh',ThoiGianBay='$ThoiGianBay'  WHERE MaChuyenBay='$MaChuyenBay'";
 		$this->selectQuery($sql);
 	}
 	function getall_page($page)
 	{
 		$from = ($page-1)* SIZE;
 		$s=SIZE;
-		$sql="select * from ChuyenBay limit $from, ". SIZE;
+		$sql="select * from chuyenbay limit $from, ". SIZE;
 		return $this->selectQuery($sql);
 	}
 

@@ -116,6 +116,16 @@ select{
     font-size: 26px;
     padding: 16px
 }
+.dangnhap a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+    padding-top: 10px;
+
+}
+.dangnhap a:hover{
+    color: #FFC107;;
+}
 .dangnhap input{
     border: 2px solid #FFC107;
     font-size: 20px;

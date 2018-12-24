@@ -26,4 +26,5 @@ else if($c=='delete')
 	$Sb=new Admin();
 	$Sb->delete($username);
 }
-echo "<script type='text/javascript'>window.location('index.php?mod=datvemb&group=admin&c=$c');</script>";
+header("Location: index.php?mod=datvemb&group=hangmaybay&c=$c");
+exit;
