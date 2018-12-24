@@ -1,5 +1,6 @@
 <?php
 //Tin nguoi 
+// day la lam2
 include "config/config.php";
 include "include/function.php";
 spl_autoload_register("loadClass");
